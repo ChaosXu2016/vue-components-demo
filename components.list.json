@@ -1,0 +1,4 @@
+{
+  "self-hello-world": "src/components/HelloWorld/index.js",
+  "self-button": "src/components/Button/index.js"
+}
