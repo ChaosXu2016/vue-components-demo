@@ -21,6 +21,16 @@ exports.default = merge(baseConfig, {
           MiniCssExtractPlugin.loader,
           'css-loader',
         ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          'vue-style-loader',
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'less-loader',
+          'postcss-loader',
+        ]
       }
     ]
   },

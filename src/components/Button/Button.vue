@@ -8,8 +8,9 @@ export default {
   
 }
 </script>
-<style scoped>
+<style scoped lang="less">
 .self-button {
-  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 4px;
 }
 </style>

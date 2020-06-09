@@ -20,6 +20,16 @@ exports.default = merge(baseConig, {
         loaders: [
           'vue-style-loader',
           'css-loader',
+          'postcss-loader',
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'postcss-loader',
+          'less-loader',
         ]
       }
     ]
