@@ -75,7 +75,14 @@ const config = merge({
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
     new VueLoaderPlugin(),
-  ]
+  ],
+  stats: {
+    children: false,
+    assetsSort: '!size',
+    chunksSort: 'name',
+    chunks: false,
+    modules: false,
+  }
 })
 
 exports.default = config

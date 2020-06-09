@@ -13,6 +13,12 @@ exports.default = merge(baseConig, {
     filename: 'js/[name].js',
     publicPath: '/'
   },
+  devServer: {
+    clientLogLevel: 'silent',
+    contentBase: path.resolve(rootPath, 'dist'),
+    compress: true,
+    port: 9000
+  },
   module: {
     rules: [
       {

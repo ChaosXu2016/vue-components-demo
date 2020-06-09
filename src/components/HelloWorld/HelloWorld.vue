@@ -1,6 +1,6 @@
 <template>
 <div class="hello-world">
-  <p>hello world</p>
+  <p>hello world, this is a demo components</p>
   <img src="@/assets/images/logo.png" alt="" srcset=""/>
 </div>
 </template>
