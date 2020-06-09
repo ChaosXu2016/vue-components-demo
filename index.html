@@ -9,13 +9,18 @@
 <body>
   <div id="app">
     <self-hello-world></self-hello-world>
-    <self-button>点我</self-button>
+    <self-button type="primary" @click="handleClick">点我</self-button>
   </div>
   <script src="/lib/vue.js"></script>
   <%= htmlWebpackPlugin.tags.bodyTags %>
   <script>
     var app = new Vue({
-      el: '#app'
+      el: '#app',
+      methods: {
+        handleClick(event) {
+          console.log('self-button-click', event)
+        }
+      }
     })
   </script>
 </body>

@@ -19,27 +19,6 @@ exports.default = merge(baseConig, {
     compress: true,
     port: 9000
   },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        loaders: [
-          'vue-style-loader',
-          'css-loader',
-          'postcss-loader',
-        ]
-      },
-      {
-        test: /\.less$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          'postcss-loader',
-          'less-loader',
-        ]
-      }
-    ]
-  },
   plugins: [
     new CopyPlugin({
       patterns: [

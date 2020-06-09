@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const rootPath = path.resolve(__dirname, '..')
 const components = require('../components.list.json')
@@ -34,8 +35,44 @@ const config = merge({
             source: 'src',
             img: 'src',
             image: 'xlink:href'
+          },
+          pluginOptions: {
+            'style-resources-loader': {
+              'preProcessor': 'less',
+              'patterns': [
+                path.resolve(rootPath, 'src/styles/*.less'),
+              ]
+            }
           }
         }
+      },
+      {
+        test: /\.css$/,
+        loaders: [
+          'vue-style-loader',
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          'vue-style-loader',
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                globalVars: {
+                  mainBlueColor: '#0E72ED',
+                  white: '#FFFFFF'
+                }
+              }
+            }
+          },
+          'postcss-loader'
+        ]
       },
       {
         test: /\.js$/,
@@ -73,6 +110,9 @@ const config = merge({
     ]
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash].css',
+    }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new VueLoaderPlugin(),
   ],
